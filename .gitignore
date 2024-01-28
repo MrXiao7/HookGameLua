@@ -30,3 +30,9 @@
 *.exe
 *.out
 *.app
+*.sdf
+*.pdb
+
+Debug
+Release
+*.suo
