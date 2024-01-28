@@ -36,3 +36,6 @@
 Debug
 Release
 *.suo
+*.opensdf
+ipch/hookgamelua-fbb13a0c/hookgamelua-a784cd59.ipch
+*.ipch
