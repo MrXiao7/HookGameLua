@@ -15,8 +15,7 @@ public:
     virtual ~CWowHookLua();
     virtual bool InitLua();
     virtual int LuaDostring(const char*);
-    //自己实现的luadofiel接口，内部通过调用读取文件调用luaDostring实现
-    virtual int LuaDoFile(const char*);
+
     
 private:
     FUNC_LUALOADBUFFER m_funluaLoadBuffer;
