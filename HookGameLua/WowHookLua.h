@@ -15,7 +15,6 @@ public:
     virtual ~CWowHookLua();
     virtual bool InitLua();
     virtual int LuaDostring(const char*);
-
     
 private:
     FUNC_LUALOADBUFFER m_funluaLoadBuffer;

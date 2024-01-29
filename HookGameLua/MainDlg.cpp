@@ -29,6 +29,7 @@ CMainDlg::CMainDlg(CWnd* pParent /*=NULL*/)
     , m_pHookLua(nullptr)
 {
     m_pHookLua = new CWowHookLua;
+    //m_pHookLua = new CTLHookLua;
     //INITDEBUGINFO();
 }
 
@@ -148,12 +149,6 @@ void CMainDlg::GameMsgProc(WPARAM wParam, LPARAM lParam)
     {
     case GAME_MSG_DOSTRING:
     {
-//         if (m_fun_luaDostring && g_luaL != -1)//如果为空就表示没有获取到
-//         {
-//             GetDlgItemText(IDC_EDIT_LUATEXT, m_csLuaText);
-//             std::string strLuaText = CStringA(m_csLuaText);
-//             m_fun_luaDostring(g_luaL, strLuaText.c_str());
-//         }
         GetDlgItemText(IDC_EDIT_LUATEXT, m_csLuaText);
         std::string strLuaText = CStringA(m_csLuaText);
         m_pHookLua->LuaDostring(strLuaText.c_str());

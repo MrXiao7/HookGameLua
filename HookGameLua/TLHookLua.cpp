@@ -75,7 +75,7 @@ bool CTLHookLua::InitLua()
     //std::bin funciont
     CVehHook::GetInstance()->AddVeh("GetFile", "Game.exe", 0x4D771F, 0, 2, 0, GetLuaFile);
     //4D 6A94
-    CVehHook::GetInstance()->AddVeh("GetFunction", "Game.exe", 0x4D7B44, 0, 2, 0, GetLuaFunction);
+    CVehHook::GetInstance()->AddVeh("GetFunction", "Game.exe", 0x4D7f14, 0, 2, 0, GetLuaFunction);
     CVehHook::GetInstance()->InitVeh();
     return true;
 }

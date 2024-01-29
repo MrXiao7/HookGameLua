@@ -1,7 +1,6 @@
 #include "stdafx.h"
 #include "WowHookLua.h"
 
-
 CWowHookLua::CWowHookLua()
 {
     _tcscpy_s(m_szClassName,_T("GxWindowClassD3d"));
@@ -46,7 +45,6 @@ void Ansi2Utf8(LPCSTR szAnsi,LPSTR szUtf8)
 
     szUtf8[aLen] = 0;
     szUtf8[aLen+1] = 0;
-
 }
 
 int CWowHookLua::LuaDostring(const char* szBuffer)
