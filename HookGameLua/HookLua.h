@@ -16,7 +16,10 @@ public:
     virtual int LuaDostring(const char*);
     //int doFile
     
+    //返回游戏窗口类名
+    HWND GetGameHwnd();
 protected:
     FUNC_LUADOSTRING m_fun_luaDostring;
+    TCHAR m_szClassName[256];
 };
 

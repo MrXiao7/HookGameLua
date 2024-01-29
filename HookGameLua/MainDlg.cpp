@@ -6,6 +6,7 @@
 #include "MainDlg.h"
 #include "afxdialogex.h"
 #include "./ShowDebugInfo/ShowDebugInfo.h"
+#include "WowHookLua.h"
 #include "TLHookLua.h"
 #include <string>
 // CMainDlg ¶Ô»°¿ò
@@ -27,7 +28,7 @@ CMainDlg::CMainDlg(CWnd* pParent /*=NULL*/)
     , m_hGameWnd(NULL)
     , m_pHookLua(nullptr)
 {
-    m_pHookLua = new CTLHookLua;
+    m_pHookLua = new CWowHookLua;
     //INITDEBUGINFO();
 }
 
@@ -67,7 +68,7 @@ BOOL CMainDlg::OnInitDialog()
 {
     CDialogEx::OnInitDialog();
     g_pWnd = this;
-    ((CTLHookLua*)m_pHookLua)->SetMainWnd(this);
+    //((CTLHookLua*)m_pHookLua)->SetMainWnd(this);
     m_pHookLua->InitLua();
 
     oldProc = (WNDPROC)SetWindowLongPtr(GetGameHwnd(), GWLP_WNDPROC, (LONG)NewWindowProc);
@@ -174,7 +175,7 @@ HWND CMainDlg::GetGameHwnd()
 {
     if (m_hGameWnd == NULL)
     {
-        m_hGameWnd = ::FindWindow(_T("TianLongBaBu WndClass"), NULL);
+        m_hGameWnd = m_pHookLua->GetGameHwnd();
     }
     return m_hGameWnd;
 }

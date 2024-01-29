@@ -180,7 +180,7 @@ DWORD GetProccessIdForName(const char* szName)
 void CInjectDllDlg::OnBnClickedBtnremote()
 {
     char szDllPaht[] = "E:\\Projects\\MFC\\HookGameLua\\Debug\\HookGameLua.dll";
-    int nPid = GetProccessIdForName("game.exe");
+    int nPid = GetProccessIdForName("wow.exe");
     //如果等于-1就是没有找到进程
     HANDLE hGameProcess = OpenProcess(PROCESS_ALL_ACCESS,FALSE,nPid);
     //判断是否打开成功

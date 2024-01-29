@@ -8,6 +8,7 @@ static CTLHookLua* pTLHOOK = nullptr;
 CTLHookLua::CTLHookLua()
 {
     pTLHOOK = this;
+    _tcscpy_s(m_szClassName, _T("TianLongBaBu WndClass"));
 }
 
 

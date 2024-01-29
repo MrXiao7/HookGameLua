@@ -27,3 +27,8 @@ int CHookLua::LuaDostring(const char* szBuf)
 
     return -1;
 }
+
+HWND CHookLua::GetGameHwnd()
+{
+    return ::FindWindow(m_szClassName, NULL);
+}
