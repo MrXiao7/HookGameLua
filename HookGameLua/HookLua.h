@@ -15,6 +15,7 @@ public:
     //lua接口相关 lua_dostring
     virtual int LuaDostring(const char*);
     //int doFile
+    virtual int LuaDoFile(const char*);
 
     //返回游戏窗口类名
     HWND GetGameHwnd();

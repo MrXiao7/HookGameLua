@@ -12,6 +12,7 @@
 // CMainDlg ¶Ô»°¿ò
 #define WM_USER_GAEMPROC WM_USER+1
 #define GAME_MSG_DOSTRING 1
+#define GAME_MSG_DOFILE 2
 
 CMainDlg *g_pWnd = nullptr;
 WNDPROC oldProc = nullptr;
@@ -57,6 +58,7 @@ BEGIN_MESSAGE_MAP(CMainDlg, CDialogEx)
     ON_BN_CLICKED(IDC_BTN_CLEARFITERATE, &CMainDlg::OnBnClickedBtnClearfiterate)
     ON_BN_CLICKED(IDC_BTN_CLEARGAMELUA, &CMainDlg::OnBnClickedBtnCleargamelua)
     ON_WM_DESTROY()
+    ON_BN_CLICKED(IDC_BTN_EXECLUAFILE, &CMainDlg::OnBnClickedBtnExecluafile)
 END_MESSAGE_MAP()
 
 
@@ -153,7 +155,11 @@ void CMainDlg::GameMsgProc(WPARAM wParam, LPARAM lParam)
         std::string strLuaText = CStringA(m_csLuaText);
         m_pHookLua->LuaDostring(strLuaText.c_str());
     }
-        break;
+    break;
+    case GAME_MSG_DOFILE:
+    {
+        m_pHookLua->LuaDoFile("d:\\test.lua");
+    }
     default:
         break;
     }
@@ -173,4 +179,9 @@ HWND CMainDlg::GetGameHwnd()
         m_hGameWnd = m_pHookLua->GetGameHwnd();
     }
     return m_hGameWnd;
+}
+
+void CMainDlg::OnBnClickedBtnExecluafile()
+{
+    ::SendMessage(GetGameHwnd(), WM_USER_GAEMPROC, GAME_MSG_DOFILE, 0);
 }
